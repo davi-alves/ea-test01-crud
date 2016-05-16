@@ -1,0 +1,52 @@
+<?php
+/** @var array $customers */
+/** @var array $products */
+$entity = isset($entity) ? $entity : new \Crud\Model\Order()
+?>
+<div class="page-header clearfix">
+    <h3 class="page-title pull-left">
+        <?php echo $entity->id ? "Editar {$entity->name}" : 'Novo Produto' ?>
+    </h3>
+    <div class="page-actions pull-right">
+        <a href="/orders" class="btn btn-default">Voltar</a>
+    </div>
+</div>
+<div class="page-content row">
+    <div class="col-sm-12">
+        <form action="/orders" class="form-horizontal" method="post" data-validate-form>
+            <div class="form-group">
+                <label for="customer_id" class="col-sm-2 control-label">Cliente</label>
+                <div class="col-sm-5">
+                    <select name="customer_id" class="form-control">
+                        <option value="">Selecione</option>
+                        <?php foreach ($customers as $customer): /** @var \Crud\Model\Customer $customer */ ?>
+                            <option value="<?php echo $customer->id ?>"
+                                <?php echo $customer->id != $entity->customer_id ?: 'selected="selected"' ?>>
+                                <?php echo $customer->name ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="product_id" class="col-sm-2 control-label">Produto</label>
+                <div class="col-sm-5">
+                    <select name="product_id" class="form-control">
+                        <option value="">Selecione</option>
+                        <?php foreach ($products as $product): /** @var \Crud\Model\Product $product */ ?>
+                            <option value="<?php echo $product->id ?>"
+                                <?php echo $product->id != $entity->product_id ?: 'selected="selected"' ?>>
+                                <?php echo $product->name ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{
+  "name": "teste01/crud",
+  "description": "CRUD basico em PHP",
+  "authors": [
+    {
+      "name": "Davi Alves",
+      "email": "hey@davialves.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Crud\\": "src/Crud"
+    }
+  }
+}

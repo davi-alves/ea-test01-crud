@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test01 - CRUD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<div class="container">
+
+    <!-- Static navbar -->
+    <div class="header cleafix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li><a href="/">Home</a></li>
+                <li><a href="/customers">Clientes</a></li>
+                <li><a href="/products">Produtos</a></li>
+                <li><a href="/orders">Pedidos</a></li>
+            </ul>
+        </nav>
+        <h1 class="text-muted">CRUD</h1>
+    </div> <!-- /header -->
+
+    <!-- Main component -->
+    <div class="row content">
+        <div class="col-sm-12">
+            {content}
+        </div>
+    </div> <!-- /content -->
+
+</div> <!-- /container -->
+
+<!-- LIBS -->
+<script src="/libs/jquery/dist/jquery.min.js"></script>
+<script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/libs/vanilla-masker/build/vanilla-masker.min.js"></script>
+<script src="/libs/parsleyjs/dist/parsley.min.js"></script>
+<script src="/libs/parsleyjs/dist/i18n/pt-br.js"></script>
+<!-- CUSTOM -->
+<script src="/scripts/masks.js"></script>
+<script src="/scripts/validator.js"></script>
+<script src="/scripts/lists.js"></script>
+</body>
+</html>

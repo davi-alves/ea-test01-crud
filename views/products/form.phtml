@@ -1,0 +1,45 @@
+<?php $entity = isset($entity) ? $entity : new \Crud\Model\Product() ?>
+<div class="page-header clearfix">
+    <h3 class="page-title pull-left">
+        <?php echo $entity->id ? "Editar {$entity->name}" : 'Novo Produto' ?>
+    </h3>
+    <div class="page-actions pull-right">
+        <a href="/products" class="btn btn-default">Voltar</a>
+    </div>
+</div>
+<div class="page-content row">
+    <div class="col-sm-12">
+        <form action="/products" class="form-horizontal" method="post" data-validate-form>
+            <input type="hidden" name="id" value="<?php echo $entity->id ?>">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Nome</label>
+                <div class="col-sm-10">
+                    <input type="text" name="name" class="form-control" placeholder="Product A"
+                           required value="<?php echo $entity->name ?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-sm-2 control-label">Descrição</label>
+                <div class="col-sm-10">
+                    <textarea name="description" class="form-control"
+                              required><?php echo $entity->description ?></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="price" class="col-sm-2 control-label">Price</label>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <div class="input-group-addon">R$</div>
+                        <input type="text" name="price" class="form-control" placeholder="1.200,00"
+                               data-mask-money required value="<?php echo $entity->price ?>">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

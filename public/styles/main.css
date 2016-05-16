@@ -1,0 +1,23 @@
+body {
+    padding-top: 30px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+.header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.page-header {
+    margin: 0 0 20px;
+}
+
+.page-actions {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}

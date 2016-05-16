@@ -1,0 +1,46 @@
+<?php /** @var array $entities */ ?>
+
+<div class="page-header clearfix">
+    <h3 class="page-title pull-left">Clientes</h3>
+    <div class="page-actions pull-right">
+        <a href="/customers/new" class="btn btn-default">Adicionar</a>
+    </div>
+</div>
+<div class="page-content row">
+    <div class="col-sm-12">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th width="140px">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if (!$entities) : ?>
+                <tr>
+                    <td colspan="5">Nenhum cliente cadastrado. Adicione um clicando <a href="/customers/new">aqui</a>
+                    </td>
+                </tr>
+            <?php else: ?>
+                <?php foreach ($entities as $entity): /** @var \Crud\Model\Customer $entity */ ?>
+                    <tr>
+                        <td><?php echo $entity->id; ?></td>
+                        <td><?php echo $entity->name; ?></td>
+                        <td><?php echo $entity->email; ?></td>
+                        <td><?php echo $entity->phone; ?></td>
+                        <td>
+                            <a href="/customers/<?php echo $entity->id ?>"
+                               class="btn btn-sm btn-default">Editar</a>
+                            <a href="/customers/delete/<?php echo $entity->id ?>"
+                               class="btn btn-sm btn-danger action-delete">Deletar</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</div>

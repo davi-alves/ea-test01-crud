@@ -1,0 +1,40 @@
+<?php /** @var array $entities */ ?>
+
+<div class="page-header clearfix">
+    <h3 class="page-title pull-left">Pedidos</h3>
+    <div class="page-actions pull-right">
+        <a href="/orders/new" class="btn btn-default">Adicionar</a>
+    </div>
+</div>
+<div class="page-content row">
+    <div class="col-sm-12">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Produto</th>
+                <th width="140px">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if (!$entities) : ?>
+                <tr>
+                    <td colspan="3">Nenhum pedido cadastrado. Adicione um clicando <a href="/orders/new">aqui</a>
+                    </td>
+                </tr>
+            <?php else: ?>
+                <?php foreach ($entities as $entity): /** @var \Crud\Model\Order $entity */ ?>
+                    <tr>
+                        <td><?php echo $entity->getCustomer()->name; ?></td>
+                        <td><?php echo $entity->getProduct()->name . ' R$' . number_format($entity->getProduct()->price, 2, ',', '.'); ?></td>
+                        <td>
+                            <a href="/orders/delete/<?php echo $entity->customer_id ?>/<?php echo $entity->product_id ?>"
+                               class="btn btn-sm btn-danger action-delete">Deletar</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
